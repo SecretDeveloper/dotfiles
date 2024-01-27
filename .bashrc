@@ -18,7 +18,7 @@ bind -x '"\C-l":clear'
 export BROWSER="firefox"
 
 # directories
-export REPOS="$HOME/repos"
+export REPOS="$HOME/Repos"
 export GITUSER="SecretDeveloper"
 export GHREPOS="$REPOS/github.com/$GITUSER"
 export DOTFILES="$GHREPOS/dotfiles"
