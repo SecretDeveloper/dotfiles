@@ -18,14 +18,13 @@ bind -x '"\C-l":clear'
 export BROWSER="firefox"
 
 # directories
-export REPOS="$HOME/Repos"
-export GITUSER="mischavandenburg"
+export REPOS="$HOME/repos"
+export GITUSER="SecretDeveloper"
 export GHREPOS="$REPOS/github.com/$GITUSER"
 export DOTFILES="$GHREPOS/dotfiles"
 export LAB="$GHREPOS/lab"
 export SCRIPTS="$DOTFILES/scripts"
-export ICLOUD="$HOME/icloud"
-export SECOND_BRAIN="$HOME/garden"
+export SECOND_BRAIN="$HOME/secondbrain"
 
 # Go related. In general all executables and scripts go in .local/bin
 export GOBIN="$HOME/.local/bin"
@@ -151,26 +150,7 @@ alias v=nvim
 # alias vim=nvim
 
 # cd
-alias vo='cd $REPOS/github.com/VanOord/'
-alias ..="cd .."
-alias scripts='cd $SCRIPTS'
-alias cdblog="cd ~/websites/blog"
-alias cdpblog='cd $SECOND_BRAIN/2-areas/blog/content'
-alias lab='cd $LAB'
-alias alab='cd $GHREPOS/azure-lab'
-alias dot='cd $GHREPOS/dotfiles'
-alias repos='cd $REPOS'
-alias cdgo='cd $GHREPOS/go/'
-alias ex='cd $REPOS/github.com/mischavandenburg/go/Exercism/'
-alias rwdot='cd $REPOS/github.com/rwxrob/dot'
 alias c="clear"
-alias icloud="cd \$ICLOUD"
-alias rob='cd $REPOS/github.com/rwxrob'
-alias homelab='cd $REPOS/github.com/mischavandenburg/homelab/'
-alias hl='homelab'
-alias hlp='cd $REPOS/github.com/mischavandenburg/homelab-private/'
-alias hlps='cd $REPOS/github.com/mischavandenburg/homelab-private-staging/'
-alias hlpp='cd $REPOS/github.com/mischavandenburg/homelab-private-production/'
 
 # ls
 alias ls='ls --color=auto'
@@ -181,65 +161,13 @@ alias la='ls -lathr'
 # finds all files recursively and sorts by last modification, ignore hidden files
 alias last='find . -type f -not -path "*/\.*" -exec ls -lrt {} +'
 
-alias sv='sudoedit'
-alias sk='killall ssh-agent && source ~/.zshrc'
 alias t='tmux'
 alias e='exit'
-alias syu='sudo pacman -Syu'
 
 # git
 alias gp='git pull'
 alias gs='git status'
 alias lg='lazygit'
-
-# ricing
-alias et='v ~/.config/awesome/themes/powerarrow/theme-personal.lua'
-alias ett='v ~/.config/awesome/themes/powerarrow-dark/theme-personal.lua'
-alias er='v ~/.config/awesome/rc.lua'
-alias ez='v ~/.zshrc'
-alias eb='v ~/.bashrc'
-alias ev='cd ~/.config/nvim/ && v init.lua'
-alias sz='source ~/.zshrc'
-alias sbr='source ~/.bashrc'
-alias s='startx'
-
-# vim & second brain
-alias sb="cd \$SECOND_BRAIN"
-alias in="cd \$SECOND_BRAIN/0-inbox/"
-alias vbn='python ~/git/python/brainfile.py'
-
-# starting programmes
-alias cards='python3 /opt/homebrew/lib/python3.11/site-packages/mtg_proxy_printer/'
-
-# terraform
-alias tp='terraform plan'
-
-# fun
-alias fishies=asciiquarium
-
-# kubectl
-alias k='kubectl'
-source <(kubectl completion bash)
-complete -o default -F __start_kubectl k
-alias kgp='kubectl get pods'
-alias kc='kubectx'
-alias kn='kubens'
-
-alias kcs='kubectl config use-context admin@homelab-staging'
-alias kcp='kubectl config use-context admin@homelab-production'
-
-# flux
-source <(flux completion bash)
-alias fgk='flux get kustomizations'
-
-# talos
-source <(talosctl completion bash)
-
-# EDB
-source <(kubectl-cnp completion bash)
-
-# cilium
-source <(cilium completion bash)
 
 # env variables
 export VISUAL=nvim
@@ -250,9 +178,6 @@ export EDITOR=nvim
 alias fp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
 # search for a file with fzf and open it in vim
 alias vf='v $(fp)'
-
-# sourcing
-source "$HOME/.privaterc"
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
 	source "$HOME/.fzf.bash"
@@ -265,12 +190,3 @@ else
 	#	source /usr/share/fzf/completion.bash
 	[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 fi
-
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/mischa/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
-
-# Only needed for npm install on WSL
-#export NVM_DIR="$HOME/.config/nvm"
-#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
-#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
